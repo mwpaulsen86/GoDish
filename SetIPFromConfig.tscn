@@ -82,7 +82,8 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 46
 text = "Enter the IP of the Dish/Gateway"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxByte1" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -95,22 +96,30 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="block10" type="Button" parent="HBoxContainer"]
+[node name="block10" type="Button" parent="HBoxByte1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 75
 text = "10"
 
-[node name="block172" type="Button" parent="HBoxContainer"]
+[node name="block172" type="Button" parent="HBoxByte1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 75
 text = "172"
 
-[node name="block192" type="Button" parent="HBoxContainer"]
+[node name="block192" type="Button" parent="HBoxByte1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 75
 text = "192"
+
+[node name="ipEntryContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 107.0
+offset_right = 1118.0
+offset_bottom = 390.0
+columns = 3
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte1" to="." method="_on_byte_1_pressed"]
