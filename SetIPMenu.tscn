@@ -1,0 +1,51 @@
+[gd_scene format=2]
+
+[node name="SetIPMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 216.0
+margin_top = 352.0
+margin_right = 780.0
+margin_bottom = 501.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 564.0
+margin_bottom = 149.0
+
+[node name="byte1" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_right = 136.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+text = "000"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+anchor_bottom = 0.443
+margin_left = 140.0
+margin_top = 67.0
+margin_right = 144.0
+margin_bottom = 81.0
+text = "."
+valign = 2
+
+[node name="byte2" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 284.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+text = "000"
+
+[node name="byte3" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 288.0
+margin_right = 424.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+text = "000"
+
+[node name="byte4" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 428.0
+margin_right = 564.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+text = "000"
