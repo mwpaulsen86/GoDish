@@ -4,11 +4,21 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var something = Global.testNum
+	print(something)
+	var arrayString = "byte1nums"
+	var numArray = Global.byte1nums
+	for string in numArray:
+		print(string)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func _remove_all_children(node):
+	for child in node.get_children():
+		node.remove_child(child)
 	pass
 
 func _make_IP_block_button(byte, block):
@@ -25,14 +35,20 @@ func _make_IP_block_button(byte, block):
 	pass
 
 func _make_buttons_for_IP_blocks(bytes, block):
+	_remove_all_children(get_node("ipEntryContainer"))
 	for byte in bytes:
 		print(byte)
 		_make_IP_block_button(byte, block)
 	pass
-
+	
+func _on_byte_pressed(byte):
+	Global.currentByte = byte
+	
+	pass
+	
 func _on_byte_1_pressed():
 	#get_node("HBoxByte1").visible = true
-	Global.currentBlock = "1"
+	Global.currentByte = "1"
 	_make_buttons_for_IP_blocks(Global.byte1nums, "1")
 	pass # Replace with function body.
 
