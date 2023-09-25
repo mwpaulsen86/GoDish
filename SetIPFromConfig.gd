@@ -3,12 +3,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var something = Global.testNum
-	print(something)
-	var arrayString = "byte1nums"
-	var numArray = Global.byte1nums
-	for string in numArray:
-		print(string)
 	pass # Replace with function body.
 
 
@@ -21,44 +15,33 @@ func _remove_all_children(node):
 		node.remove_child(child)
 	pass
 
-func _make_IP_block_button(byte, block):
+func _make_IP_block_button(octetPos, octetVal):
 	var ipButton = Button.new()
-	Global.currentByte = byte
-	#var buttonName = "byte" + byte + "block" + block
-	#Global.customData.add 
-	ipButton.text = byte
+	ipButton.text = octetVal
 	ipButton.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	ipButton.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	ipButton.pressed.connect(on_IP_block_button_pressed.bind(byte, block))
+	ipButton.pressed.connect(on_IP_block_button_pressed.bind(octetVal, octetPos))
 	
 	get_node("ipEntryContainer").add_child(ipButton)
 	pass
 
-func _make_buttons_for_IP_blocks(bytes, block):
+func _make_buttons_for_IP_blocks(octetVals, octetPos):
 	_remove_all_children(get_node("ipEntryContainer"))
-	for byte in bytes:
-		print(byte)
-		_make_IP_block_button(byte, block)
+	for octetVal in octetVals:
+		print(octetVal)
+		_make_IP_block_button(octetPos, octetVal)
 	pass
 	
-func _on_byte_pressed(byte):
-	Global.currentByte = byte
+func _on_octet_pressed(octetPos):
+	Global.currentOctetPos = octetPos
 	
 	pass
 	
 func _on_byte_1_pressed():
-	#get_node("HBoxByte1").visible = true
-	Global.currentByte = "1"
+	Global.currentOctetPos = "1"
 	_make_buttons_for_IP_blocks(Global.byte1nums, "1")
 	pass # Replace with function body.
 
-func on_IP_block_button_pressed(byte, block):
-	
-	var blockName = "block" + Global.currentBlock
-	var byteName = "byte" + Global.currentByte
-	
-	#print("blockname: " + blockName)
-	#print("bytename: " + byteName)
-	print(byte)
-	#print("byte pressed was: " + get_node(byteName).)
+func on_IP_block_button_pressed(octetVal, octetPos):
+	print(octetVal)
 	pass
