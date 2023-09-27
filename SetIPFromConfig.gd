@@ -8,6 +8,11 @@ func _ready():
 	for button in NumPad.get_children():
 		button.connect("pressed", Callable(self,"_on_numpad_button_pressed").bind(button.text))
 	NumPad.visible = false
+	var octetBoxes = get_node("MarginContainer/HBoxContainer")
+	for octetBox in octetBoxes.get_children():
+		if octetBox.text != ".":
+			octetBox.connect("pressed", Callable(self, "_on_octet_pressed").bind(octetBox.get_name()))
+			print(octetBox.get_name())
 	pass # Replace with function body.
 
 
@@ -39,14 +44,14 @@ func _make_buttons_for_IP_blocks(octetVals, octetPos):
 	
 func _on_octet_pressed(octetPos):
 	Global.currentOctetPos = octetPos
-	
+	print(octetPos.right(1))
 	pass
 	
-func _on_byte_1_pressed():
-	Global.currentOctetPos = "1"
-	_make_buttons_for_IP_blocks(Global.byte1nums, "1")
-	pass # Replace with function body.
-	
+#func _on_byte_1_pressed():
+#	Global.currentOctetPos = "1"
+#	_make_buttons_for_IP_blocks(Global.byte1nums, "1")
+#	pass # Replace with function body.
+#
 
 
 func on_IP_block_button_pressed(octetVal, octetPos):
