@@ -126,8 +126,8 @@ columns = 3
 layout_mode = 0
 offset_left = 55.0
 offset_top = 87.0
-offset_right = 435.0
-offset_bottom = 445.0
+offset_right = 369.0
+offset_bottom = 464.0
 columns = 3
 
 [node name="numPad7" type="Button" parent="NumPadContainer"]
@@ -193,9 +193,17 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "3"
 
+[node name="numPad10" type="Button" parent="NumPadContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Clr"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte1" to="." method="_on_byte_1_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte2" to="." method="_on_byte_2_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte3" to="." method="_on_byte_3_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/byte4" to="." method="_on_byte_4_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad7" to="." method="_on_num_pad_7_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad8" to="." method="_on_num_pad_8_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad9" to="." method="_on_num_pad_9_pressed"]
@@ -205,3 +213,4 @@ text = "3"
 [connection signal="pressed" from="NumPadContainer/numPad1" to="." method="_on_num_pad_1_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad2" to="." method="_on_num_pad_2_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad3" to="." method="_on_num_pad_3_pressed"]
+[connection signal="pressed" from="NumPadContainer/numPad10" to="." method="_on_num_pad_3_pressed"]
