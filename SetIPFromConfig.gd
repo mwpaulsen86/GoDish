@@ -12,7 +12,7 @@ func _ready():
 	for octetBox in octetBoxes.get_children():
 		if octetBox.text != ".":
 			octetBox.connect("pressed", Callable(self, "_on_octet_pressed").bind(octetBox.get_name()))
-			print(octetBox.get_name())
+			print("name: " + octetBox.get_name())
 	pass # Replace with function body.
 
 
@@ -36,15 +36,23 @@ func _make_IP_block_button(octetPos, octetVal):
 	pass
 
 func _make_buttons_for_IP_blocks(octetVals, octetPos):
+	_hide_numpad()
 	_remove_all_children(get_node("ipEntryContainer"))
 	for octetVal in octetVals:
 		print(octetVal)
 		_make_IP_block_button(octetPos, octetVal)
+	if octetPos == "4":
+		_show_numpad()
 	pass
 	
 func _on_octet_pressed(octetPos):
 	Global.currentOctetPos = octetPos
-	print(octetPos.right(1))
+	var octetPosNum = octetPos.right(1)
+	print("other: " + octetPos.right(1))
+	Global.currentOctetPos = octetPosNum
+	_make_buttons_for_IP_blocks(Global.octetPossibleValues[octetPosNum], octetPosNum)
+	if octetPos == "4":
+		_show_numpad()
 	pass
 	
 #func _on_byte_1_pressed():
@@ -58,24 +66,29 @@ func on_IP_block_button_pressed(octetVal, octetPos):
 	var octetNodeName = "MarginContainer/HBoxContainer/byte" + octetPos
 	var octetNode = get_node(octetNodeName)
 	octetNode.text = octetVal
-	print(octetVal)
+#	print("val: " + octetVal)
+#	print("pos: " + octetPos)
+#	for val in Global.octetPossibleValues:
+#		print(val)
+#	Global.currentOctetPos = octetPos
+#	_make_buttons_for_IP_blocks(Global.octetPossibleValues[octetPos], octetPos)
 	pass
 
 
-func _on_byte_2_pressed():
-	Global.currentOctetPos = "2"
-	_make_buttons_for_IP_blocks(Global.byte2nums, "2")
-	pass # Replace with function body.
-
-func _on_byte_3_pressed():
-	Global.currentOctetPos = "3"
-	_make_buttons_for_IP_blocks(Global.byte3nums, "3")
-	pass # Replace with function body.
-
-func _on_byte_4_pressed():
-	Global.currentOctetPos = "4"
-	_show_numpad()
-	pass # Replace with function body.
+#func _on_byte_2_pressed():
+#	Global.currentOctetPos = "2"
+#	_make_buttons_for_IP_blocks(Global.byte2nums, "2")
+#	pass # Replace with function body.
+#
+#func _on_byte_3_pressed():
+#	Global.currentOctetPos = "3"
+#	_make_buttons_for_IP_blocks(Global.byte3nums, "3")
+#	pass # Replace with function body.
+#
+#func _on_byte_4_pressed():
+#	Global.currentOctetPos = "4"
+#	_show_numpad()
+#	pass # Replace with function body.
 
 func _on_numpad_button_pressed(text):
 	print(text)
