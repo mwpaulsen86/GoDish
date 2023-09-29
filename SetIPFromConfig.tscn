@@ -118,11 +118,33 @@ text = "192"
 layout_mode = 0
 offset_left = 32.0
 offset_top = 60.0
-offset_right = 1118.0
+offset_right = 896.0
 offset_bottom = 475.0
 columns = 3
 
+[node name="IPControls" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 212.0
+offset_right = 1145.0
+offset_bottom = 442.0
+
+[node name="Manual" type="Button" parent="IPControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Manual"
+
+[node name="Set" type="Button" parent="IPControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Set"
+
 [node name="NumPadContainer" type="GridContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 55.0
 offset_top = 87.0
@@ -204,7 +226,8 @@ text = "Clr"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte2" to="." method="_on_byte_2_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte3" to="." method="_on_byte_3_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte4" to="." method="_on_byte_4_pressed"]
-[connection signal="pressed" from="NumPadContainer/numPad7" to="." method="_on_num_pad_7_pressed"]
+[connection signal="pressed" from="IPControls/Manual" to="." method="_on_manual_pressed"]
+[connection signal="pressed" from="IPControls/Set" to="." method="_on_set_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad8" to="." method="_on_num_pad_8_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad9" to="." method="_on_num_pad_9_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad4" to="." method="_on_num_pad_4_pressed"]

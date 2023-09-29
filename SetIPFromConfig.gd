@@ -35,12 +35,19 @@ func _make_IP_block_button(octetPos, octetVal):
 	get_node("ipEntryContainer").add_child(ipButton)
 	pass
 
-func _make_buttons_for_IP_blocks(octetVals, octetPos):
+func _make_buttons_for_IP_blocks(octetPos):
+	#clear whatever interface might be on the screen
 	_hide_numpad()
 	_remove_all_children(get_node("ipEntryContainer"))
+	
+	#find the possible octet values for a given octet
+	var octetVals = Global.octetPossibleValues[octetPos]
+	
+	#make a button for each possible value 
 	for octetVal in octetVals:
-		print(octetVal)
 		_make_IP_block_button(octetPos, octetVal)
+		
+	#if it's the last octet, show the numpad
 	if octetPos == "4":
 		_show_numpad()
 	pass
@@ -50,7 +57,7 @@ func _on_octet_pressed(octetPos):
 	var octetPosNum = octetPos.right(1)
 	print("other: " + octetPos.right(1))
 	Global.currentOctetPos = octetPosNum
-	_make_buttons_for_IP_blocks(Global.octetPossibleValues[octetPosNum], octetPosNum)
+	_make_buttons_for_IP_blocks(octetPosNum)
 	if octetPos == "4":
 		_show_numpad()
 	pass
@@ -115,54 +122,25 @@ func _hide_numpad():
 	var NumPad = get_node("NumPadContainer")
 	NumPad.visible = false
 	pass
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-#
-#func _on_num_pad_1_pressed():
-#
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_2_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_3_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_4_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_5_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_6_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_7_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_8_pressed():
-#	pass # Replace with function body.
-#
-#
-#func _on_num_pad_9_pressed():
-#	pass # Replace with function body.
 
 
+func _on_manual_pressed():
+	_show_numpad()
+	_remove_all_children(get_node("ipEntryContainer"))
+	pass # Replace with function body.
 
+
+func _on_set_pressed():
+	var userIP = ["", "", "", ""]
+	var octets = get_node("MarginContainer/HBoxContainer").get_children()
+	
+	for octet in octets:
+		if octet.text != ".":
+			var octetName = octet.get_name()
+			var octetNum = octetName.right(1)
+			var octetIndex = int(octetNum) - 1
+			Global.gatewayIP[octetIndex] = octet.text
+	
+	for i in 4:
+		print(Global.gatewayIP[i])
+	pass # Replace with function body.
