@@ -140,7 +140,5 @@ func _on_set_pressed():
 			var octetNum = octetName.right(1)
 			var octetIndex = int(octetNum) - 1
 			Global.gatewayIP[octetIndex] = octet.text
-	
-	for i in 4:
-		print(Global.gatewayIP[i])
+	Global._set_IP(Global.gatewayIP)
 	pass # Replace with function body.

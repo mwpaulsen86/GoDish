@@ -2,5 +2,3 @@ res://default_env.tres
 res://MainMenu.tscn
 res://SetIPFromConfig.tscn
 res://SetIPMenu.tscn
-res://SetIPFromConfig.gd
-res://main.gd

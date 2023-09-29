@@ -19,3 +19,15 @@ var octetPossibleValues = {
 	"4": []
 }
 
+func _set_IP(ip):
+	var ipString = ""
+	for octet in ip:
+		ipString += octet + "."
+	ipString = ipString.left(ipString.length() - 1)
+	var commandString = "ping " + ipString
+	var output = []
+	OS.execute("ping", [ipString], output)
+	for thing in output:
+		print(thing)
+	
+	pass
