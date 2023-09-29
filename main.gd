@@ -24,10 +24,26 @@ func _set_IP(ip):
 	for octet in ip:
 		ipString += octet + "."
 	ipString = ipString.left(ipString.length() - 1)
-	var commandString = "ping " + ipString
-	var output = []
-	OS.execute("ping", [ipString], output)
-	for thing in output:
-		print(thing)
+	var commandString = "ping -n 1" + ipString
+	var numArg = "-n"
+	var numOfPings = "1"
 	
+	var addressChangeString = "netsh interface ip set address name=\"Ethernet\" static 192.168.1.123 255.255.255.0 192.168.1.20"
+	var command = "netsh"
+	var arg1 = 'interface'
+	var arg2 = "ip" 
+	var arg3 = "set"
+	var arg4 = "address"
+	var arg5 = 'name="Ethernet"' 
+	var arg6 = "static" 
+	var arg7 = "192.168.1.123"
+	var arg8 =  "255.255.255.0"
+	var arg9 = "192.168.1.20"
+	var output = []
+	OS.execute(command, [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9], output)
+	var ipResult = output[0]
+	print("ip result was: " + ipResult)
+#	for thing in output:
+#		print(thing)
+#
 	pass
