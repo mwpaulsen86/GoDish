@@ -29,20 +29,26 @@ func _set_IP(ip):
 	var numOfPings = "1"
 	
 	var addressChangeString = "netsh interface ip set address name=\"Ethernet\" static 192.168.1.123 255.255.255.0 192.168.1.20"
+	var adminCommand = "runas"
+	var adminCommandName = "/user:Administrator"
+
 	var command = "netsh"
 	var arg1 = 'interface'
 	var arg2 = "ip" 
 	var arg3 = "set"
 	var arg4 = "address"
-	var arg5 = 'name="Ethernet"' 
+	var arg5 = 'name="EthernetGodot"' 
 	var arg6 = "static" 
-	var arg7 = "192.168.1.123"
+	var arg7 = "192.168.1.121"
 	var arg8 =  "255.255.255.0"
-	var arg9 = "192.168.1.20"
+	var arg9 = "192.168.1.21"
 	var output = []
 	OS.execute(command, [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9], output)
-	var ipResult = output[0]
+	var ipResult = ""
+	for thing in output:
+		ipResult += thing + "..."
 	print("ip result was: " + ipResult)
+	print("number of things was: " + str(output.size()))
 #	for thing in output:
 #		print(thing)
 #
