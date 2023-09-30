@@ -3,3 +3,5 @@ res://MainMenu.tscn
 res://SetIPFromConfig.tscn
 res://SetIPMenu.tscn
 res://main.gd
+res://highContrast.tres
+res://SetIPFromConfig.gd

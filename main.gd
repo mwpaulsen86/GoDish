@@ -24,6 +24,10 @@ func _set_IP(ip):
 	for octet in ip:
 		ipString += octet + "."
 	ipString = ipString.left(ipString.length() - 1)
+	var deviceIPString = ""
+	for i in 3:
+		deviceIPString += gatewayIP[i] + "."
+	deviceIPString += "123"
 	var commandString = "ping -n 1" + ipString
 	var numArg = "-n"
 	var numOfPings = "1"
@@ -39,9 +43,9 @@ func _set_IP(ip):
 	var arg4 = "address"
 	var arg5 = 'name="EthernetGodot"' 
 	var arg6 = "static" 
-	var arg7 = "192.168.1.121"
+	var arg7 = deviceIPString
 	var arg8 =  "255.255.255.0"
-	var arg9 = "192.168.1.21"
+	var arg9 = ipString
 	var output = []
 	OS.execute(command, [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9], output)
 	var ipResult = ""

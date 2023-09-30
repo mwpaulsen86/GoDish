@@ -54,6 +54,7 @@ func _make_buttons_for_IP_blocks(octetPos):
 	
 func _on_octet_pressed(octetPos):
 	Global.currentOctetPos = octetPos
+	print("Current OP: " + Global.currentOctetPos)
 	var octetPosNum = octetPos.right(1)
 	print("other: " + octetPos.right(1))
 	Global.currentOctetPos = octetPosNum
