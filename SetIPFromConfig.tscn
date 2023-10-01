@@ -228,6 +228,42 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Clr"
 
+[node name="numPad0" type="Button" parent="NumPadContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="ipResultContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 115.0
+offset_right = 788.0
+offset_bottom = 422.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ipResultContainer"]
+layout_mode = 2
+
+[node name="okButton" type="Button" parent="ipResultContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 30
+text = "OK"
+
+[node name="Label" type="Label" parent="ipResultContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 2
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 19.0
+offset_right = 1136.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte1" to="." method="_on_byte_1_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte2" to="." method="_on_byte_2_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/byte3" to="." method="_on_byte_3_pressed"]
@@ -243,3 +279,4 @@ text = "Clr"
 [connection signal="pressed" from="NumPadContainer/numPad2" to="." method="_on_num_pad_2_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad3" to="." method="_on_num_pad_3_pressed"]
 [connection signal="pressed" from="NumPadContainer/numPad10" to="." method="_on_num_pad_3_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

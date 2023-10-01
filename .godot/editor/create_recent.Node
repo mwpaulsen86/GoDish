@@ -1,6 +1,7 @@
 Button
+VBoxContainer
+Label
+MarginContainer
 GridContainer
 HBoxContainer
 PopupMenu
-Label
-MarginContainer

@@ -20,6 +20,8 @@ var octetPossibleValues = {
 }
 
 func _set_IP(ip):
+	var ipResultTextBox = get_node("root/Global/SetIPFromConfig/ipResultContainer/VBoxContainer/Label")
+	ipResultTextBox.text = "abcde"
 	var ipString = ""
 	for octet in ip:
 		ipString += octet + "."
@@ -49,6 +51,8 @@ func _set_IP(ip):
 	var output = []
 	OS.execute(command, [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9], output)
 	var ipResult = ""
+	if output.size() < 1:
+		print("it worked")
 	for thing in output:
 		ipResult += thing + "..."
 	print("ip result was: " + ipResult)

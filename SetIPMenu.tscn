@@ -33,16 +33,19 @@ layout_mode = 2
 [node name="Known" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "Known"
 
 [node name="FromConfig" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "From Config"
 
 [node name="FullManual" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "Fully Manual"
 
 [node name="Label" type="Label" parent="."]
@@ -57,4 +60,13 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 46
 text = "Enter the IP of the Dish/Gateway"
 
+[node name="backButton" type="Button" parent="."]
+offset_left = 972.0
+offset_top = 19.0
+offset_right = 1136.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Known" to="." method="_on_known_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

@@ -30,6 +30,7 @@ func _make_IP_block_button(octetPos, octetVal):
 	ipButton.text = octetVal
 	ipButton.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	ipButton.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	ipButton.add_theme_font_size_override("font_size", 55)
 	ipButton.pressed.connect(on_IP_block_button_pressed.bind(octetVal, octetPos))
 	
 	get_node("ipEntryContainer").add_child(ipButton)
@@ -124,6 +125,15 @@ func _hide_numpad():
 	NumPad.visible = false
 	pass
 
+func _show_ip_result():
+	var ipResultContainer = get_node("ipEntryContainer")
+	ipResultContainer.visible = true
+	pass
+
+func _hide_ip_result():
+	var ipResultContainer = get_node("ipResultContainer")
+	ipResultContainer.visible = false
+	pass
 
 func _on_manual_pressed():
 	_show_numpad()
@@ -132,6 +142,8 @@ func _on_manual_pressed():
 
 
 func _on_set_pressed():
+	_hide_numpad()
+	_remove_all_children(get_node("ipEntryContainer"))
 	var userIP = ["", "", "", ""]
 	var octets = get_node("MarginContainer/HBoxContainer").get_children()
 	
@@ -142,4 +154,8 @@ func _on_set_pressed():
 			var octetIndex = int(octetNum) - 1
 			Global.gatewayIP[octetIndex] = octet.text
 	Global._set_IP(Global.gatewayIP)
+	pass # Replace with function body.
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://SetIPMenu.tscn")
 	pass # Replace with function body.
