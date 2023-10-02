@@ -61,6 +61,7 @@ theme_override_font_sizes/font_size = 46
 text = "Enter the IP of the Dish/Gateway"
 
 [node name="backButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 972.0
 offset_top = 19.0
 offset_right = 1136.0

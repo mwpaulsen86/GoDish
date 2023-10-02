@@ -1,8 +1,5 @@
 res://default_env.tres
 res://MainMenu.tscn
+res://highContrast.tres
 res://SetIPFromConfig.tscn
 res://SetIPMenu.tscn
-res://main.gd
-res://highContrast.tres
-res://SetIPFromConfig.gd
-res://SetIPMenu.gd
